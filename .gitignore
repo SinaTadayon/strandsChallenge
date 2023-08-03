@@ -42,6 +42,12 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Output Directories
+artifacts
+cache
+out
+cache_forge
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

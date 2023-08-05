@@ -22,3 +22,7 @@ coverage.json
 tsconfig.json
 typechain
 yarn-error.log
+out
+artifacts
+cache
+cache_forge

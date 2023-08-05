@@ -32,9 +32,9 @@ const config: HardhatUserConfig = {
       url: "http://127.0.0.1:8545",
       // accounts: netAccounts,
     },
-    polygon: {
-      url: "https://polygon-rpc.com/",
-      chainId: 137,
+    linea: {
+      url: "https://rpc.goerli.linea.build",
+      chainId: 59140,
       accounts: netAccounts,
     },
   },

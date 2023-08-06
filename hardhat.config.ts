@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-foundry";
+import "hardhat-deploy";
 import "hardhat-gas-reporter";
 import "hardhat-contract-sizer";
 import "hardhat-abi-exporter";
@@ -64,11 +65,22 @@ const config: HardhatUserConfig = {
     pretty: false,
   },
 
+  paths: {
+    deploy: "./deploy",
+  },
+
+
   typechain: {
     outDir: "./typechain/types",
     target: "ethers-v6",
     alwaysGenerateOverloads: true, // should overloads with full signatures like deposit(uint256) be generated always, even if there are no overloads?
     externalArtifacts: ["externalArtifacts/*.json"], // optional array of glob patterns with external artifacts to process (for example external libs from node_modules)
+  },
+
+  namedAccounts: {
+    deployer: {
+      default: 0,
+    },
   },
 };
 

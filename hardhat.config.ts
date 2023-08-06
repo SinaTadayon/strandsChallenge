@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-foundry";
+import "@nomicfoundation/hardhat-verify";
 import "hardhat-deploy";
 import "hardhat-gas-reporter";
 import "hardhat-contract-sizer";
@@ -12,9 +13,9 @@ import "solidity-coverage";
 dotenv.config();
 
 const mnemonic = process.env.MNEMONIC;
-const systemAdminKey = process.env.SYSTEM_ADMIN_KEY;
+const adminKey = process.env.ADMIN_KEY;
 
-const netAccounts = systemAdminKey ? [systemAdminKey] : [];
+const netAccounts = adminKey ? [adminKey] : [];
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -42,10 +43,6 @@ const config: HardhatUserConfig = {
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
-  },
-
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 
   contractSizer: {
@@ -82,6 +79,23 @@ const config: HardhatUserConfig = {
       default: 0,
     },
   },
+
+  etherscan: {
+    apiKey: {
+      linea: process.env.API_KEY ? process.env.API_KEY : ""
+    },
+    customChains: [
+      {
+        network: "linea",
+        chainId: 59140,
+        urls: {
+          apiURL: "https://api-goerli.lineascan.build/api",          
+          browserURL: "https://goerli.lineascan.build/"
+        }
+      }
+    ]
+  }
+  
 };
 
 export default config;

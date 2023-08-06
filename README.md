@@ -1,13 +1,43 @@
-# Sample Hardhat Project
+# Linea Testnet Sample Contract
+This is a simple project to transfer any ERC20 token and ETH coin on the Linea testnet network. It's based on the Hardhat and Foundry frameworks.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+## Installation
+1. Clone this repository:
+```console
+git clone https://github.com/SinaTadayon/strandsChallenge.git 
 ```
+
+2. Install NPM packages:
+```console
+cd strandsChallenge
+yarn install
+``` 
+
+## Run tests:
+```console
+yarn test:forge
+```
+
+## Run deploy:
+- local network
+```console
+yarn deploy:local
+```
+- linea testnet network
+```console
+yarn deploy:linea
+```
+## Run verify:
+- linea network
+```console
+yarn verify --network linea CONTRACT_ADDRESS
+```
+
+## Author
+
+This example implementation was written by Sina Tadadyon.
+
+## License
+
+MIT license. See the license file.
+Anyone can use or modify this software for their purposes.
